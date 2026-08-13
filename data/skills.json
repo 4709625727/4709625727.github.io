@@ -1,0 +1,85 @@
+{
+  "_instructions": "Organize your skills with vibrant colors.",
+  "sectionTitle": "Skills & Technologies",
+  "categories": [
+    {
+      "category": "Programming Languages",
+      "icon": "fas fa-code",
+      "color": "#FF6B6B",
+      "skills": [
+        "Java",
+        "SQL",
+        "JavaScript"
+      ]
+    },
+    {
+      "category": "Frameworks & Libraries",
+      "icon": "fas fa-toolbox",
+      "color": "#4ECDC4",
+      "skills": [
+        "Spring Suite",
+        "Hibernate",
+        "Struts",
+        "OAuth 2.0",
+        "Spring Boot",
+        "Spring REST",
+        "Spring Web",
+        "Spring Cloud",
+        "Spring Security",
+        "Spring Data JPA",
+        "React.js",
+        "Angular.js",
+        "Bootstrap",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "category": "Tools & Platforms",
+      "icon": "fas fa-wrench",
+      "color": "#FFE66D",
+      "skills": [
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "Maven",
+        "Gradle",
+        "JIRA",
+        "Postman",
+        "GitHub",
+        "Junit",
+        "Mockito",
+        "Tomcat",
+        "AWS",
+        "R53",
+        "S3",
+        "RDS",
+        "EC2",
+        "Lambda",
+        "Beanstalk",
+        "DynamoDB",
+        "IAM",
+        "MySQL",
+        "PostgreSQL",
+        "Mongo DB"
+      ]
+    },
+    {
+      "category": "Technical Skills",
+      "icon": "fas fa-laptop-code",
+      "color": "#A8DADC",
+      "skills": [
+        "Servlets",
+        "JSP",
+        "JPA",
+        "JSTL",
+        "JDBC",
+        "Microservices",
+        "SDLC",
+        "Agile",
+        "Scrum",
+        "Waterfall"
+      ]
+    }
+  ]
+}

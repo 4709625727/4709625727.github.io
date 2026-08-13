@@ -1,0 +1,30 @@
+{
+  "_instructions": "Footer section.",
+  "copyright": {
+    "text": "© 2026 Prudhvi Vuppalapati. All rights reserved.",
+    "year": "2026",
+    "name": "Prudhvi Vuppalapati"
+  },
+  "tagline": "Crafted with passion and dedication",
+  "links": [
+    {
+      "text": "Privacy Policy",
+      "href": "#privacy"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "#terms"
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "Email",
+      "url": "mailto:jaswanthjeswa85@gmail.com",
+      "icon": "fas fa-envelope"
+    }
+  ],
+  "backToTop": {
+    "text": "Back to Top",
+    "icon": "fas fa-chevron-up"
+  }
+}

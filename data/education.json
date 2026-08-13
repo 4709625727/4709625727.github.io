@@ -1,0 +1,16 @@
+{
+  "_instructions": "Add your education and certifications here.",
+  "sectionTitle": "Education & Certifications",
+  "certificationsTitle": "Certifications",
+  "education": [
+    {
+      "degree": "Master of Science",
+      "school": "Kennesaw State University, GA, USA",
+      "institution": "Kennesaw State University, GA, USA",
+      "period": "May 2025",
+      "details": "",
+      "description": ""
+    }
+  ],
+  "certifications": []
+}

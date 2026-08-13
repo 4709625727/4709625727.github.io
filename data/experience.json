@@ -1,0 +1,41 @@
+{
+  "_instructions": "Add your work experience here. Copy the experience object for each job.",
+  "sectionTitle": "Professional Experience",
+  "experiences": [
+    {
+      "title": "Full Stack Developer",
+      "company": "CGI, USA",
+      "period": "Nov 2024 – Present",
+      "location": "",
+      "description": "Enhanced backend performance by implementing Redis-based caching strategies and optimizing REST API calls in Spring Boot, reducing average response latency by 25% and improving page rendering speed for high-traffic web apps. Designed and deployed RESTful APIs using Spring Boot within a microservices architecture, driving modular backend development and enabling seamless service scalability. Built and managed a resilient microservices ecosystem with Spring Boot, Netflix Eureka, and Spring Cloud Config, ensuring often 100% uptime, seamless service-to-service communication, and improved fault tolerance. Developed responsive front-end interfaces with React.js, improving load time by 20% and delivering a smoother user experience that boosted customer satisfaction and engagement. Validated API performance, security, and reliability through rigorous testing with Postman and Swagger, ensuring stable integrations and reducing production defects. Deployed backend infrastructure on AWS (Lambda, App Runner, S3) to achieve faster release cycles, high availability, and scalability across critical business services.",
+      "responsibilities": [
+        "Enhanced backend performance by implementing Redis-based caching strategies and optimizing REST API calls in Spring Boot, reducing average response latency by 25% and improving page rendering speed for high-traffic web apps",
+        "Designed and deployed RESTful APIs using Spring Boot within a microservices architecture, driving modular backend development and enabling seamless service scalability",
+        "Built and managed a resilient microservices ecosystem with Spring Boot, Netflix Eureka, and Spring Cloud Config, ensuring often 100% uptime, seamless service-to-service communication, and improved fault tolerance",
+        "Developed responsive front-end interfaces with React",
+        "js, improving load time by 20% and delivering a smoother user experience that boosted customer satisfaction and engagement",
+        "Validated API performance, security, and reliability through rigorous testing with Postman and Swagger, ensuring stable integrations and reducing production defects",
+        "Deployed backend infrastructure on AWS (Lambda, App Runner, S3) to achieve faster release cycles, high availability, and scalability across critical business services"
+      ]
+    },
+    {
+      "title": "Junior Full Stack Developer",
+      "company": "Lumen Technologies, INDIA",
+      "period": "Jan 2021 – Jul 2023",
+      "location": "",
+      "description": "Migrated legacy monolithic applications to a microservices architecture using Spring Boot and Spring Cloud, improving modularity, reducing deployment time by 30%, and enhancing horizontal scalability. Implemented Spring Boot Actuator with Prometheus and Grafana dashboards for proactive system monitoring, enabling real-time health checks and reducing mean time to resolution (MTTR) by 40%. Engineered dynamic Angular front-end components integrated with Spring Boot REST APIs, enhancing UI responsiveness and improving application performance across devices. Leveraged Node.js for server-side rendering (SSR) of UI components, enhancing application performance and improving SEO rankings for client-facing applications. Optimized data storage and retrieval by integrating Amazon RDS and DynamoDB, reducing query response times and enhancing application throughput. Deployed enterprise-grade applications on AWS Elastic Beanstalk, leveraging performance tuning, connection pooling, and caching strategies to achieve faster response times. Designed and developed RESTful APIs using Spring MVC, Swagger for documentation, and optimized HTTP methods, cutting average downtime during deployments by 20% and ensuring efficient request handling across distributed services. Streamlined data persistence with Spring Data JPA on MySQL and PostgreSQL, improving database access speeds and supporting high-volume transaction processing. Configured AWS CloudWatch monitoring and logging, increasing real-time system visibility and reducing incident response time by 35%.",
+      "responsibilities": [
+        "Migrated legacy monolithic applications to a microservices architecture using Spring Boot and Spring Cloud, improving modularity, reducing deployment time by 30%, and enhancing horizontal scalability",
+        "Implemented Spring Boot Actuator with Prometheus and Grafana dashboards for proactive system monitoring, enabling real-time health checks and reducing mean time to resolution (MTTR) by 40%",
+        "Engineered dynamic Angular front-end components integrated with Spring Boot REST APIs, enhancing UI responsiveness and improving application performance across devices",
+        "Leveraged Node",
+        "js for server-side rendering (SSR) of UI components, enhancing application performance and improving SEO rankings for client-facing applications",
+        "Optimized data storage and retrieval by integrating Amazon RDS and DynamoDB, reducing query response times and enhancing application throughput",
+        "Deployed enterprise-grade applications on AWS Elastic Beanstalk, leveraging performance tuning, connection pooling, and caching strategies to achieve faster response times",
+        "Designed and developed RESTful APIs using Spring MVC, Swagger for documentation, and optimized HTTP methods, cutting average downtime during deployments by 20% and ensuring efficient request handling across distributed services",
+        "Streamlined data persistence with Spring Data JPA on MySQL and PostgreSQL, improving database access speeds and supporting high-volume transaction processing",
+        "Configured AWS CloudWatch monitoring and logging, increasing real-time system visibility and reducing incident response time by 35%"
+      ]
+    }
+  ]
+}

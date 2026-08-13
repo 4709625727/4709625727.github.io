@@ -1,0 +1,75 @@
+{
+  "_instructions": "Contact section.",
+  "sectionTitle": "Get In Touch",
+  "subtitle": "Have a project in mind? I'd love to hear from you!",
+  "contactInfo": [
+    {
+      "type": "email",
+      "label": "Email",
+      "value": "jaswanthjeswa85@gmail.com",
+      "href": "mailto:jaswanthjeswa85@gmail.com",
+      "icon": "fas fa-envelope",
+      "color": "#FF6B6B"
+    },
+    {
+      "type": "phone",
+      "label": "Phone",
+      "value": "(470) 962-5727",
+      "href": "tel:4709625727",
+      "icon": "fas fa-phone",
+      "color": "#4ECDC4"
+    },
+    {
+      "type": "location",
+      "label": "Location",
+      "value": "Atlanta, GA",
+      "href": "https://maps.google.com/?q=Atlanta%2C%20GA",
+      "icon": "fas fa-map-marker-alt",
+      "color": "#FFE66D"
+    }
+  ],
+  "form": {
+    "action": "#",
+    "method": "POST",
+    "submitText": "Send Message",
+    "submitIcon": "fas fa-paper-plane",
+    "successMessage": "Thanks for reaching out!",
+    "errorMessage": "Oops! Something went wrong.",
+    "fields": [
+      {
+        "name": "name",
+        "type": "text",
+        "label": "Your Name",
+        "placeholder": "John Doe",
+        "required": true,
+        "icon": "fas fa-user"
+      },
+      {
+        "name": "email",
+        "type": "email",
+        "label": "Your Email",
+        "placeholder": "john@example.com",
+        "required": true,
+        "icon": "fas fa-envelope"
+      },
+      {
+        "name": "subject",
+        "type": "text",
+        "label": "Subject",
+        "placeholder": "Project Inquiry",
+        "required": true,
+        "icon": "fas fa-tag"
+      },
+      {
+        "name": "message",
+        "type": "textarea",
+        "label": "Message",
+        "placeholder": "Tell me about your project...",
+        "required": true,
+        "rows": 6,
+        "icon": "fas fa-comment"
+      }
+    ]
+  },
+  "socialMedia": []
+}

@@ -1,0 +1,26 @@
+{
+  "_instructions": "Site-wide configuration and meta tags.",
+  "title": "Prudhvi Vuppalapati | Full Stack Developer",
+  "description": "Prudhvi Vuppalapati - Full Stack Developer | Portfolio",
+  "keywords": "Full Stack Developer, Portfolio, Prudhvi Vuppalapati",
+  "author": "Prudhvi Vuppalapati",
+  "siteName": "Prudhvi Vuppalapati",
+  "siteTitle": "Prudhvi Vuppalapati | Full Stack Developer",
+  "meta": {
+    "title": "Prudhvi Vuppalapati | Full Stack Developer",
+    "description": "Prudhvi Vuppalapati - Full Stack Developer | Portfolio",
+    "author": "Prudhvi Vuppalapati",
+    "keywords": "Full Stack Developer, Portfolio, Prudhvi Vuppalapati"
+  },
+  "branding": {
+    "name": "Prudhvi Vuppalapati",
+    "tagline": "Full Stack Developer",
+    "logo": "/logo.png"
+  },
+  "settings": {
+    "year": 2026,
+    "enableAnimations": true,
+    "enableParticles": true,
+    "navbarScrollEffect": true
+  }
+}

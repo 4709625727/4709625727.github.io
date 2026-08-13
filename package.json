@@ -1,0 +1,33 @@
+{
+  "name": "vibrant-portfolio-template",
+  "version": "1.0.0",
+  "description": "A modern, vibrant portfolio website template with dark theme and dynamic gradients",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": [
+    "portfolio",
+    "template",
+    "website",
+    "personal",
+    "developer",
+    "designer",
+    "creative",
+    "dark-theme",
+    "json-driven",
+    "responsive",
+    "vanilla-js"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/vibrant-portfolio-template"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/vibrant-portfolio-template/issues"
+  },
+  "homepage": "https://yourusername.github.io/vibrant-portfolio-template"
+}
