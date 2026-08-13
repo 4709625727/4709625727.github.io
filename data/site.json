@@ -16,11 +16,11 @@
     "title": "Prudhvi Vuppalapati — Analytics Engineer",
     "description": "Analytics engineer in Atlanta, GA. I build the warehouse layer other teams query: change-data-capture ingestion, dbt models under test, and marts that never get built on bad data.",
     "keywords": "analytics engineer, data engineer, dbt, SQL, Airflow, Postgres, ClickHouse, DuckDB, Apache Iceberg, Atlanta",
-    "url": "https://4709625727.github.io/",
-    "_url_TODO": "Point this at a custom domain when one is registered, then update CNAME.",
+    "url": "https://prudhvivuppalapati.com/",
     "ogImage": "assets/images/og.jpg",
     "themeColor": "#EDEFF2",
-    "themeColorDark": "#101319"
+    "themeColorDark": "#101319",
+    "_url_note": "Apex is canonical. The CNAME file at the repo root must match this host, and www is a CNAME to 4709625727.github.io which GitHub redirects to the apex."
   },
   "sections": [
     {
