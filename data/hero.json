@@ -1,53 +1,18 @@
 {
-  "_instructions": "Hero section content.",
-  "greeting": "Hi, I'm",
-  "name": "Prudhvi Vuppalapati",
-  "title": "Full Stack Developer",
-  "summary": "Full Stack Developer with 2+ years of experience specializing in Java, SQL, JavaScript.",
-  "avatarUrl": "/avatar.png",
-  "tagline": "Full Stack Developer",
-  "highlights": [
-    {
-      "icon": "fas fa-briefcase",
-      "text": "2+ Years Experience",
-      "color": "#FF6B6B"
-    },
-    {
-      "icon": "fas fa-project-diagram",
-      "text": "11+ Projects Completed",
-      "color": "#4ECDC4"
-    },
-    {
-      "icon": "fas fa-code",
-      "text": "Technical Expertise",
-      "color": "#FFE66D"
-    }
+  "_note": "The hero. `thesis` is the one line a hiring manager reads. Keep it under ~60 characters.",
+  "kicker": "Analytics engineer — Atlanta, GA",
+  "thesis": "I build the warehouse layer other teams query.",
+  "body": [
+    "Four years of backend work on Postgres, MySQL, RDS and DynamoDB: tuning queries, sizing caches, and keeping the dashboards that told us when they broke. What I build now sits on the other side of that boundary. The pipelines that turn those operational databases into something a team can actually ask questions of.",
+    "My paid work so far has been backend engineering. The data-platform work is the five repositories below, and it is the job I am moving toward.",
+    "Each one runs end to end across ingest, model and serve. Each boots from a clean clone against synthetic data, with no warehouse account or credentials required, and each is tested at the layer where it would actually fail."
   ],
-  "cta": {
-    "buttons": [
-      {
-        "text": "Get In Touch",
-        "href": "#contact",
-        "type": "primary",
-        "external": false
-      },
-      {
-        "text": "View My Work",
-        "href": "#projects",
-        "type": "secondary",
-        "external": false
-      }
-    ]
+  "primaryAction": {
+    "label": "Read the pipeline",
+    "href": "#pipeline"
   },
-  "socialLinks": [
-    {
-      "platform": "Email",
-      "url": "mailto:jaswanthjeswa85@gmail.com",
-      "icon": "fas fa-envelope"
-    }
-  ],
-  "scrollIndicator": {
-    "text": "Scroll to explore",
-    "icon": "fas fa-chevron-down"
+  "secondaryAction": {
+    "label": "Email me",
+    "href": "mailto:"
   }
 }

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Three pipeline layers: ingest, model, serve">
+  <style>
+    .bg { fill: #EDEFF2; }
+    .ingest { fill: #95552B; }
+    .model  { fill: #40566E; }
+    .serve  { fill: #7E5D07; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #101319; }
+      .ingest { fill: #D08A55; }
+      .model  { fill: #8AA6C4; }
+      .serve  { fill: #D2A62B; }
+    }
+  </style>
+  <rect class="bg" width="32" height="32"/>
+  <rect class="ingest" x="3"  y="6" width="8" height="20"/>
+  <rect class="model"  x="12" y="6" width="8" height="20"/>
+  <rect class="serve"  x="21" y="6" width="8" height="20"/>
+</svg>

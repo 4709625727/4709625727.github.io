@@ -1,272 +1,115 @@
 {
-  "_instructions": "Add your projects.",
-  "sectionTitle": "Featured Work",
+  "_note": "The medallion pipeline. Every project is classified into exactly one layer: ingest -> model -> serve. Descriptions here are drawn from each repo's own README — keep them true.",
+  "intro": "Five repositories, arranged the way a warehouse is: raw change comes in on the left, tested models sit in the middle, and the things people query come out on the right.",
+  "layers": [
+    {
+      "id": "ingest",
+      "label": "ingest",
+      "title": "Ingest",
+      "blurb": "Raw change, captured as it happened."
+    },
+    {
+      "id": "model",
+      "label": "model",
+      "title": "Model",
+      "blurb": "Cleaned, joined, and tested before anything downstream reads it."
+    },
+    {
+      "id": "serve",
+      "label": "serve",
+      "title": "Serve",
+      "blurb": "The tables and measures people actually query."
+    }
+  ],
   "projects": [
     {
-      "title": "sql-datawarehouse-project",
-      "description": "Full-featured application built as a learning exercise",
-      "longDescription": "Full-featured application built as a learning exercise",
-      "category": "Software Development",
-      "technologies": [
-        "TSQL"
+      "slug": "streamguard-cdc",
+      "name": "StreamGuard",
+      "subtitle": "change data capture",
+      "layer": "ingest",
+      "oneLiner": "Postgres write-ahead log to ClickHouse in seconds, not hours.",
+      "body": "Reads Postgres logical replication through a Debezium connector, streams every committed row change onto Kafka topics, and lands them in ClickHouse. It handles the three things that actually break CDC pipelines in practice: duplicate events, schema evolution, and windowed aggregation. Parse and sink failures go to a dead-letter topic rather than being dropped, and consumer lag and throughput are provisioned onto a Grafana dashboard.",
+      "detail": "Ships with a documented failure-injection guide, so the recovery paths are demonstrable rather than asserted.",
+      "stack": [
+        "Postgres",
+        "Debezium",
+        "Kafka",
+        "ClickHouse",
+        "Prometheus",
+        "Grafana",
+        "Docker"
       ],
-      "icon": "fas fa-project-diagram",
-      "color": "#FF6B6B",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": true,
-      "github": "https://github.com/4709625727/sql-datawarehouse-project",
-      "demo": "https://github.com/4709625727/sql-datawarehouse-project",
-      "links": {
-        "github": "https://github.com/4709625727/sql-datawarehouse-project",
-        "demo": "https://github.com/4709625727/sql-datawarehouse-project",
-        "live": "https://github.com/4709625727/sql-datawarehouse-project"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
+      "repo": "https://github.com/4709625727/streamguard-cdc",
+      "flagship": true
     },
     {
-      "title": "time-series-forecasting-python",
-      "description": "Learning project built with modern web technologies",
-      "longDescription": "Learning project built with modern web technologies",
-      "category": "Backend Development",
-      "technologies": [
-        "Jupyter Notebook",
+      "slug": "lakehouse-quality-gate",
+      "name": "Lakehouse Quality Gate",
+      "subtitle": "enforcement, not reporting",
+      "layer": "model",
+      "oneLiner": "Data quality that stops the pipeline instead of filing a report.",
+      "body": "Most lakehouse data quality is passive: tests run, a report goes red, and nobody notices until the numbers look wrong days later. Here a Great Expectations checkpoint sits physically between the dbt staging layer and the marts on an Apache Iceberg lakehouse. When expectations fail the Airflow DAG stops, so no mart is ever built on top of bad data, and a structured alert naming the exact failing expectations and a sample of offending row IDs goes out over a webhook.",
+      "detail": "A chaos module injects the failures on demand, so the gate is proven to hold rather than assumed to.",
+      "stack": [
+        "Airflow",
+        "dbt",
+        "Apache Iceberg",
+        "Great Expectations",
         "Python",
-        "HTML"
+        "Docker"
       ],
-      "icon": "fas fa-brain",
-      "color": "#4ECDC4",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": false,
-      "github": "https://github.com/4709625727/time-series-forecasting-python",
-      "demo": "https://github.com/4709625727/time-series-forecasting-python",
-      "links": {
-        "github": "https://github.com/4709625727/time-series-forecasting-python",
-        "demo": "https://github.com/4709625727/time-series-forecasting-python",
-        "live": "https://github.com/4709625727/time-series-forecasting-python"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
+      "repo": "https://github.com/4709625727/lakehouse-quality-gate"
     },
     {
-      "title": "cohortkit",
-      "description": "Educational project for mastering software architecture",
-      "longDescription": "Educational project for mastering software architecture",
-      "category": "Backend Development",
-      "technologies": [
+      "slug": "field-ops-sql-cost-audit",
+      "name": "Field Ops Cost Audit",
+      "subtitle": "cost-to-serve modelling",
+      "layer": "model",
+      "oneLiner": "True cost per job, and where SLA breaches actually concentrate.",
+      "body": "Field-service operators need two answers they usually can't get, because dispatch, routes, timesheets, fuel and tickets live in disconnected tables in inconsistent shapes. This reconciles them through a tested dbt pipeline: staging views, a business-logic layer, then reporting views. The hard SQL is written once and covered by tests, including recursive route sequencing, utilization windows and cost allocation.",
+      "detail": "Runs fully offline on DuckDB against a generated dataset. No warehouse, no credentials, reproducible from a clean clone.",
+      "stack": [
+        "dbt",
+        "DuckDB",
+        "SQL",
+        "Python",
+        "pytest",
+        "GitHub Actions"
+      ],
+      "repo": "https://github.com/4709625727/field-ops-sql-cost-audit"
+    },
+    {
+      "slug": "retail-margin-cockpit",
+      "name": "Retail Margin Cockpit",
+      "subtitle": "governed star schema",
+      "layer": "serve",
+      "oneLiner": "One governed margin number, replacing five spreadsheets.",
+      "body": "At small retail and DTC companies, \"what's our margin?\" is a multi-hour exercise across POS, Shopify and a hand-maintained inventory sheet that never joins cleanly, so finance and ops quote different numbers. This turns those raw exports into a tested dbt star schema, with not_null, unique, relationships and accepted_values tests on every key column, then adds the DAX measure library and row-level-security design that let a regional manager open Power BI and see only their own region.",
+      "detail": "A seeded generator produces two years of internally consistent retail history. Same seed, same bytes, every run, which is what makes everything downstream testable.",
+      "stack": [
+        "dbt",
+        "SQL",
+        "Power BI",
+        "DAX",
         "Python"
       ],
-      "icon": "fas fa-project-diagram",
-      "color": "#FFE66D",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": false,
-      "github": "https://github.com/4709625727/cohortkit",
-      "demo": "https://github.com/4709625727/cohortkit",
-      "links": {
-        "github": "https://github.com/4709625727/cohortkit",
-        "demo": "https://github.com/4709625727/cohortkit",
-        "live": "https://github.com/4709625727/cohortkit"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
+      "repo": "https://github.com/4709625727/retail-margin-cockpit"
     },
     {
-      "title": "log-analysis-anomaly-detection",
-      "description": "Practice repository for exploring advanced features",
-      "longDescription": "Practice repository for exploring advanced features",
-      "category": "Backend Development",
-      "technologies": [
-        "Python"
-      ],
-      "icon": "fas fa-project-diagram",
-      "color": "#A8DADC",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": false,
-      "github": "https://github.com/4709625727/log-analysis-anomaly-detection",
-      "demo": "https://github.com/4709625727/log-analysis-anomaly-detection",
-      "links": {
-        "github": "https://github.com/4709625727/log-analysis-anomaly-detection",
-        "demo": "https://github.com/4709625727/log-analysis-anomaly-detection",
-        "live": "https://github.com/4709625727/log-analysis-anomaly-detection"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
-    },
-    {
-      "title": "streamguard-cdc",
-      "description": "Full-featured application built as a learning exercise",
-      "longDescription": "Full-featured application built as a learning exercise",
-      "category": "Backend Development",
-      "technologies": [
+      "slug": "cohortkit",
+      "name": "cohortkit",
+      "subtitle": "retention analytics library",
+      "layer": "serve",
+      "oneLiner": "Cohort triangles and RFM for any customer/order/revenue table.",
+      "body": "Every subscription and e-commerce business needs the same three retention views: a cohort-retention triangle, an RFM segmentation, and revenue by acquisition cohort. They usually live in a BI tool or a pile of copy-pasted SQL. This turns them into three tidy-DataFrame calls and a CLI, running in-process on DuckDB, so they work in a notebook, a test, or a cron job with no infrastructure at all.",
+      "detail": "24 tests, no network, no configuration.",
+      "stack": [
         "Python",
-        "Shell",
-        "Dockerfile"
+        "DuckDB",
+        "pandas",
+        "uv"
       ],
-      "icon": "fas fa-project-diagram",
-      "color": "#B19CD9",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": false,
-      "github": "https://github.com/4709625727/streamguard-cdc",
-      "demo": "https://github.com/4709625727/streamguard-cdc",
-      "links": {
-        "github": "https://github.com/4709625727/streamguard-cdc",
-        "demo": "https://github.com/4709625727/streamguard-cdc",
-        "live": "https://github.com/4709625727/streamguard-cdc"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
-    },
-    {
-      "title": "lakehouse-quality-gate",
-      "description": "Learning project built with modern web technologies",
-      "longDescription": "Learning project built with modern web technologies",
-      "category": "Backend Development",
-      "technologies": [
-        "Python",
-        "Dockerfile"
-      ],
-      "icon": "fas fa-project-diagram",
-      "color": "#FF8B94",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": false,
-      "github": "https://github.com/4709625727/lakehouse-quality-gate",
-      "demo": "https://github.com/4709625727/lakehouse-quality-gate",
-      "links": {
-        "github": "https://github.com/4709625727/lakehouse-quality-gate",
-        "demo": "https://github.com/4709625727/lakehouse-quality-gate",
-        "live": "https://github.com/4709625727/lakehouse-quality-gate"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
-    },
-    {
-      "title": "retail-margin-cockpit",
-      "description": "Learning project built with modern web technologies",
-      "longDescription": "Learning project built with modern web technologies",
-      "category": "Backend Development",
-      "technologies": [
-        "Python",
-        "PLpgSQL",
-        "Dockerfile"
-      ],
-      "icon": "fas fa-project-diagram",
-      "color": "#FF6B6B",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": false,
-      "github": "https://github.com/4709625727/retail-margin-cockpit",
-      "demo": "https://github.com/4709625727/retail-margin-cockpit",
-      "links": {
-        "github": "https://github.com/4709625727/retail-margin-cockpit",
-        "demo": "https://github.com/4709625727/retail-margin-cockpit",
-        "live": "https://github.com/4709625727/retail-margin-cockpit"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
-    },
-    {
-      "title": "field-ops-sql-cost-audit",
-      "description": "Personal project for exploring modern development practices",
-      "longDescription": "Personal project for exploring modern development practices",
-      "category": "Backend Development",
-      "technologies": [
-        "Python",
-        "Dockerfile"
-      ],
-      "icon": "fas fa-project-diagram",
-      "color": "#4ECDC4",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": false,
-      "github": "https://github.com/4709625727/field-ops-sql-cost-audit",
-      "demo": "https://github.com/4709625727/field-ops-sql-cost-audit",
-      "links": {
-        "github": "https://github.com/4709625727/field-ops-sql-cost-audit",
-        "demo": "https://github.com/4709625727/field-ops-sql-cost-audit",
-        "live": "https://github.com/4709625727/field-ops-sql-cost-audit"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
-    },
-    {
-      "title": "contribution-history",
-      "description": "Generated GitHub contribution history",
-      "longDescription": "Generated GitHub contribution history",
-      "category": "Development",
-      "technologies": [],
-      "icon": "fas fa-project-diagram",
-      "color": "#FFE66D",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": false,
-      "github": "https://github.com/4709625727/contribution-history",
-      "demo": "https://github.com/4709625727/contribution-history",
-      "links": {
-        "github": "https://github.com/4709625727/contribution-history",
-        "demo": "https://github.com/4709625727/contribution-history",
-        "live": "https://github.com/4709625727/contribution-history"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
-    },
-    {
-      "title": "end-to-end-pipeline-snowflake-dbt-tableau",
-      "description": "Portfolio project showcasing development capabilities",
-      "longDescription": "Portfolio project showcasing development capabilities",
-      "category": "Development",
-      "technologies": [],
-      "icon": "fas fa-project-diagram",
-      "color": "#A8DADC",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": false,
-      "github": "https://github.com/4709625727/end-to-end-pipeline-snowflake-dbt-tableau",
-      "demo": "https://github.com/4709625727/end-to-end-pipeline-snowflake-dbt-tableau",
-      "links": {
-        "github": "https://github.com/4709625727/end-to-end-pipeline-snowflake-dbt-tableau",
-        "demo": "https://github.com/4709625727/end-to-end-pipeline-snowflake-dbt-tableau",
-        "live": "https://github.com/4709625727/end-to-end-pipeline-snowflake-dbt-tableau"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
-    },
-    {
-      "title": "analytics-engineering-prototype",
-      "description": "Personal development project using industry best practices",
-      "longDescription": "Personal development project using industry best practices",
-      "category": "Development",
-      "technologies": [],
-      "icon": "fas fa-project-diagram",
-      "color": "#B19CD9",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&q=80&fit=crop",
-      "featured": false,
-      "github": "https://github.com/4709625727/analytics-engineering-prototype",
-      "demo": "https://github.com/4709625727/analytics-engineering-prototype",
-      "links": {
-        "github": "https://github.com/4709625727/analytics-engineering-prototype",
-        "demo": "https://github.com/4709625727/analytics-engineering-prototype",
-        "live": "https://github.com/4709625727/analytics-engineering-prototype"
-      },
-      "stats": {
-        "status": "Completed",
-        "year": "2026"
-      }
+      "repo": "https://github.com/4709625727/cohortkit"
     }
   ]
 }

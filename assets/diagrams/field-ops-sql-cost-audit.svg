@@ -1,0 +1,34 @@
+<svg viewBox="0 0 720 150" xmlns="http://www.w3.org/2000/svg" class="dgm" role="img" aria-labelledby="dgm-fo-t dgm-fo-d">
+  <title id="dgm-fo-t">Field operations cost-to-serve model</title>
+  <desc id="dgm-fo-d">Four disconnected operational tables — dispatch, routes, timesheets and fuel — are shaped by dbt staging views, then joined in a business-logic layer that does the recursive route sequencing, utilization windows and cost allocation once. The result is two tested reporting views: cost-to-serve per job and SLA breach concentration. The whole pipeline runs offline on DuckDB.</desc>
+
+  <rect class="d-box" x="10" y="12" width="98" height="24"/><text class="d-sub" x="59" y="28">dispatch</text>
+  <rect class="d-box" x="10" y="42" width="98" height="24"/><text class="d-sub" x="59" y="58">routes</text>
+  <rect class="d-box" x="10" y="72" width="98" height="24"/><text class="d-sub" x="59" y="88">timesheets</text>
+  <rect class="d-box" x="10" y="102" width="98" height="24"/><text class="d-sub" x="59" y="118">fuel</text>
+
+  <path class="d-line" d="M108 24 H130 V69 M108 54 H130 M108 84 H130 M108 114 H130 V69"/>
+  <path class="d-line" d="M130 69 H150"/><path class="d-head" d="M156 69 l-7 -3.5 v7 z"/>
+
+  <rect class="d-box" x="156" y="46" width="110" height="46"/>
+  <text class="d-label" x="211" y="68">dbt staging</text>
+  <text class="d-sub"   x="211" y="83">a view per source</text>
+
+  <path class="d-line" d="M266 69 H290"/><path class="d-head" d="M296 69 l-7 -3.5 v7 z"/>
+
+  <rect class="d-box is-accent" x="296" y="34" width="186" height="70"/>
+  <text class="d-label is-accent-text" x="389" y="56">business logic</text>
+  <text class="d-sub" x="389" y="73">recursive route sequencing</text>
+  <text class="d-sub" x="389" y="88">utilization · cost allocation</text>
+
+  <path class="d-line" d="M482 69 H502 V40 M502 69 V98"/>
+  <path class="d-head" d="M508 40 l-7 -3.5 v7 z"/><path class="d-head" d="M508 98 l-7 -3.5 v7 z"/>
+
+  <rect class="d-box is-accent" x="508" y="22" width="202" height="36"/>
+  <text class="d-sub is-accent-text" x="609" y="44">cost-to-serve per job</text>
+
+  <rect class="d-box is-accent" x="508" y="80" width="202" height="36"/>
+  <text class="d-sub is-accent-text" x="609" y="102">SLA breach concentration</text>
+
+  <text class="d-sub" x="389" y="128">every view under dbt tests · DuckDB, no warehouse</text>
+</svg>

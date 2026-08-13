@@ -1,324 +1,140 @@
-# Vibrant Portfolio Template
+# 4709625727.github.io
 
-A modern, vibrant, and fully customizable portfolio website template with a dark theme and dynamic gradient effects. Built with vanilla HTML, CSS, and JavaScript, featuring a JSON-driven architecture for easy content management.
+Personal site for **Prudhvi Vuppalapati**, analytics engineer (Atlanta, GA).
 
-## Features
+Static HTML with no framework and no runtime dependencies. Content lives in
+`data/*.json`; `build.js` renders it into `index.html` and `404.html` at build
+time, so the page is fully readable with JavaScript disabled and link previews
+show real content instead of an empty shell.
 
-- **Vibrant Dark Theme**: Modern dark theme with colorful gradients and animations
-- **JSON-Driven Content**: All content is stored in JSON files for easy customization
-- **Fully Responsive**: Mobile-first design that works on all devices
-- **Particle Background**: Interactive particle effects using Particles.js
-- **Smooth Animations**: Scroll reveal animations and smooth transitions
-- **No Framework Required**: Pure vanilla JavaScript, HTML, and CSS
-- **SEO Optimized**: Meta tags and semantic HTML for better search engine visibility
-- **Easy to Customize**: Simple configuration through JSON files and CSS variables
+## Edit and publish
 
-## Quick Start
-
-### Prerequisites
-
-- A modern web browser
-- A text editor (VS Code, Sublime Text, etc.)
-- Basic knowledge of HTML, CSS, and JavaScript (optional)
-
-### Installation
-
-1. **Clone or Download** this repository:
-   ```bash
-   git clone <repository-url>
-   cd vibrant-portfolio-template
-   ```
-
-2. **Open the project** in your favorite text editor
-
-3. **Customize your content** by editing the JSON files in the `data/` folder
-
-4. **Open `index.html`** in your browser to view your portfolio
-
-### Local Development
-
-For the best development experience, use a local server:
-
-**Option 1: Using Python**
 ```bash
-# Python 3
-python -m http.server 8000
-
-# Python 2
-python -m SimpleHTTPServer 8000
+npm run build     # rewrite index.html, 404.html and resume.html from data/
+npm run check     # fail if the committed HTML is stale (this is what CI runs)
+npm run resume    # rebuild, then render resume.pdf with headless Chrome
+npm run dev       # build, then serve on http://localhost:8000
 ```
 
-**Option 2: Using Node.js (http-server)**
-```bash
-npm install -g http-server
-http-server
-```
+**Editing content means editing `data/`, then running `npm run build` and
+committing the regenerated HTML.** Editing `index.html` directly will be
+overwritten on the next build.
 
-**Option 3: Using VS Code**
-- Install the "Live Server" extension
-- Right-click on `index.html` and select "Open with Live Server"
+| File | Holds |
+|---|---|
+| `data/site.json` | Name, role, contact details, meta tags, the rail schema |
+| `data/hero.json` | The opening thesis and body copy |
+| `data/projects.json` | Medallion layers and the featured repositories |
+| `data/experience.json` | Roles and education |
+| `data/skills.json` | Tool groups, and which tools have public code behind them |
 
-Then open your browser and navigate to `http://localhost:8000`
+## Build-time integrity checks
 
-## Customization Guide
+`build.js` refuses to produce a page that contradicts itself. It exits non-zero if:
 
-### 1. Update Site Information
+- a project references a layer that doesn't exist, or has no repo URL or one-liner;
+- a skill is marked `"e": true` (has repo evidence) but no featured project's stack
+  actually lists it;
+- `experience.totalMonths` disagrees with the sum of the individual roles;
+- `site.json` advertises a different project count than `projects.json` contains;
+- a diagram label is too wide for the box it sits in (SVG has no text layout
+  engine, so an overflowing label silently spills across the artwork);
+- a diagram is missing its `<title>` or `<desc>` for screen readers;
+- **any page references a third-party origin.** The footer promises no
+  third-party requests; nothing else could catch a stylesheet or font quietly
+  making that promise false, so the rendered output is scanned directly.
 
-Edit `data/site-config.json` to update your site's metadata:
+The previous version of this site displayed "2+ years" and "3+ years" of
+experience in the same scroll, and "0+ Certifications" as an achievement. These
+checks exist so that class of error fails the build rather than the interview.
 
-```json
-{
-  "title": "Your Name - Creative Portfolio",
-  "description": "Your portfolio description",
-  "author": "Your Name",
-  "keywords": "your, keywords, here"
-}
-```
-
-### 2. Customize Navigation
-
-Edit `data/navigation.json` to update your navigation menu:
-
-```json
-{
-  "brand": {
-    "name": "Your Brand",
-    "href": "#home"
-  },
-  "menuItems": [...]
-}
-```
-
-### 3. Update Hero Section
-
-Edit `data/hero.json` to personalize your landing page:
-
-```json
-{
-  "greeting": "Hello, I'm",
-  "name": "Your Name",
-  "title": "Your Title",
-  "tagline": "Your tagline",
-  "summary": "Your summary..."
-}
-```
-
-### 4. Add Your Experience
-
-Edit `data/experience.json` to add your work experience:
-
-```json
-{
-  "experiences": [
-    {
-      "title": "Job Title",
-      "company": "Company Name",
-      "period": "Jan 2020 - Present",
-      "description": "Job description...",
-      "responsibilities": [...],
-      "technologies": [...]
-    }
-  ]
-}
-```
-
-### 5. Showcase Your Skills
-
-Edit `data/skills.json` to list your technical skills:
-
-```json
-{
-  "categories": [
-    {
-      "category": "Frontend Development",
-      "icon": "fas fa-palette",
-      "color": "#FF6B6B",
-      "skills": ["HTML5", "CSS3", "JavaScript", ...]
-    }
-  ]
-}
-```
-
-### 6. Add Your Projects
-
-Edit `data/projects.json` to showcase your work:
-
-```json
-{
-  "projects": [
-    {
-      "title": "Project Name",
-      "description": "Project description...",
-      "technologies": [...],
-      "links": {
-        "github": "https://github.com/...",
-        "demo": "https://..."
-      }
-    }
-  ]
-}
-```
-
-### 7. Update Education & Certifications
-
-Edit `data/education.json` to add your educational background:
-
-```json
-{
-  "education": [...],
-  "certifications": [...]
-}
-```
-
-### 8. Setup Contact Form
-
-Edit `data/contact.json` to configure your contact information:
-
-```json
-{
-  "contactInfo": [...],
-  "form": {
-    "action": "https://formspree.io/f/your-form-id",
-    "method": "POST",
-    ...
-  }
-}
-```
-
-**Note**: To enable the contact form, sign up at [Formspree](https://formspree.io/) and replace `your-form-id` with your actual form ID.
-
-### 9. Customize Colors
-
-Edit CSS variables in `assets/css/styles.css`:
-
-```css
-:root {
-  --color-bg-dark: #0a0e27;
-  --color-accent-1: #FF6B6B;
-  --color-accent-2: #4ECDC4;
-  /* ... more colors */
-}
-```
-
-### 10. Update Footer
-
-Edit `data/footer.json` to customize your footer:
-
-```json
-{
-  "copyright": {
-    "text": "© 2024 Your Name. All rights reserved.",
-    "year": "2024"
-  },
-  "tagline": "Crafted with passion and coffee ☕"
-}
-```
-
-## Project Structure
+## Structure
 
 ```
-vibrant-portfolio-template/
-├── assets/
-│   ├── css/
-│   │   └── styles.css           # All styling
-│   └── js/
-│       └── main.js              # Core application logic
-├── data/
-│   ├── site-config.json         # SEO & meta tags
-│   ├── navigation.json          # Navigation menu
-│   ├── hero.json                # Hero section
-│   ├── about.json               # About section
-│   ├── experience.json          # Work experience
-│   ├── skills.json              # Skills & technologies
-│   ├── projects.json            # Projects showcase
-│   ├── education.json           # Education & certifications
-│   ├── contact.json             # Contact information
-│   └── footer.json              # Footer content
-├── index.html                   # Main HTML file
-├── package.json                 # Project metadata
-└── README.md                    # This file
+build.js                 renders index.html + 404.html from data/
+data/*.json              all content — the only files you normally edit
+assets/css/styles.css    the design system
+assets/js/main.js        progressive enhancement only (~160 lines)
+assets/images/           favicon, apple touch icon, Open Graph card
+.github/workflows/ci.yml runs npm run check on every push
 ```
 
-## Deployment
+## Design notes
 
-### GitHub Pages
+The page is laid out the way a warehouse is. A schema rail on the left lists the
+sections with their types; the work itself is classified into a medallion
+pipeline — **ingest → model → serve** — drawn as one continuous rule that changes
+colour at each layer boundary. Each project row carries a spine in its layer's
+colour.
 
-1. Push your code to a GitHub repository
-2. Go to Settings → Pages
-3. Select the main branch as the source
-4. Your site will be available at `https://yourusername.github.io/repository-name`
+Those three colours (`--ingest`, `--model`, `--serve`) are semantic: they mean a
+pipeline layer and are used for nothing else. Everything else is ink on paper.
+Every foreground/background pair is at least 4.5:1 in both light and dark
+schemes.
 
-### Netlify
+Type is the IBM Plex superfamily in three roles: Plex Mono for identifiers and
+headings, Plex Sans for prose, Plex Mono at small sizes for labels and tags.
 
-1. Push your code to GitHub/GitLab
-2. Go to [Netlify](https://netlify.com)
-3. Click "New site from Git"
-4. Select your repository
-5. Click "Deploy site"
+## Figures and marks
 
-### Vercel
+Each project row carries a hand-authored SVG architecture diagram in
+`assets/diagrams/`. They are inlined into the HTML, so they cost no request,
+inherit the row's layer colour through `currentColor` (exact in both schemes,
+with no filter approximation), stay crisp at any size, and carry **real labels** —
+about 2.5KB each against the 60KB generated bitmaps they replaced. An unlabelled
+schematic is texture; a labelled one is information.
 
-1. Push your code to GitHub/GitLab
-2. Go to [Vercel](https://vercel.com)
-3. Import your repository
-4. Click "Deploy"
+The earlier generated rasters are still in `assets/images/projects/`. Set
+`"figureStyle": "png"` on a project in `data/projects.json` to switch that row
+back to its bitmap.
 
-## Technologies Used
+**Employer marks are the real wordmarks.** CGI and Lumen Technologies come from
+Wikimedia Commons, where both are public domain as text logos — see
+[`assets/images/logos/SOURCES.md`](assets/images/logos/SOURCES.md). They are
+inlined with every fill rewritten to `currentColor` and reproduced in one colour
+deliberately: colour on this page denotes a pipeline layer, so a brand red would
+assert a meaning that isn't there. Because wordmarks differ wildly in proportion,
+`build.js` reads each `viewBox` and derives a height that lands them on a common
+optical width.
 
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with CSS variables, Grid, and Flexbox
-- **JavaScript (ES6+)**: Vanilla JavaScript for interactivity
-- **Particles.js**: Interactive particle background
-- **Font Awesome**: Icon library
-- **Google Fonts**: Poppins and Playfair Display
+Kennesaw State University renders a typographic monogram — no freely licensed
+academic mark exists, and the only public-domain option is the athletics logo.
 
-## Browser Support
+## Portrait
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Opera (latest)
+`assets/images/portrait/` holds a 4:5 crop at 1x and 2x in WebP with a JPEG
+fallback, served through `<picture>` and framed with the same hairline as every
+other object on the page. It sits in the right-hand column of the profile
+section, top-aligned with the name, and collapses above the copy at 8.5rem on
+narrow screens. It carries `alt=""`: the name is directly beside it, so a screen
+reader should not announce the person twice. The same crop is composited into the
+Open Graph card, which is where a face earns the most — it is what a recruiter
+sees when the link is pasted into LinkedIn or an email.
 
-## Performance
+It is deliberately **not** on `resume.pdf`. US hiring convention is against
+photos on a CV: they invite bias complaints and confuse applicant-tracking
+parsers. The site is the right place for a face; the CV is not.
 
-- Lightweight: ~50KB total (without images)
-- Fast load times
-- Optimized animations
-- Mobile-first responsive design
+## Fonts
+
+Self-hosted and subset. The site previously pulled a render-blocking Google
+Fonts stylesheet: 21 files, 147KB, including an IBM Plex Sans 600 that the page
+never painted, and every visitor's IP going to Google while the footer promised
+no third-party requests. It now ships five same-origin woff2 files totalling
+80KB, subset to Basic Latin plus the handful of extra glyphs the content uses.
+
+## Résumé
+
+`npm run resume` renders a one-page `resume.pdf` from the same `data/*.json` as
+the site, so the CV and the page can never disagree about a date, an employer or
+what a project does.
 
 ## Accessibility
 
-- Semantic HTML structure
-- ARIA labels for interactive elements
-- Keyboard navigation support
-- High contrast colors for readability
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Credits
-
-- Design & Development: [Your Name]
-- Icons: [Font Awesome](https://fontawesome.com/)
-- Fonts: [Google Fonts](https://fonts.google.com/)
-- Particles: [Particles.js](https://vincentgarreau.com/particles.js/)
-
-## Support
-
-If you have any questions or need help customizing this template, please:
-
-1. Check the documentation above
-2. Review the JSON file comments (\_instructions)
-3. Open an issue on GitHub
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
-
-**Made with ❤️ and lots of coffee**
-
-If you found this template helpful, please give it a star ⭐
+- Renders and reads completely without JavaScript.
+- All text meets WCAG AA contrast in light and dark schemes.
+- `prefers-reduced-motion` disables the one animation and smooth scrolling.
+- The small-screen menu is removed from the tab order when closed, closes on
+  Escape and on outside click, and reports state via `aria-expanded`.
+- Visible focus rings throughout; skip link to main content.
+- No trackers, no analytics, no cookies, no third-party JavaScript.

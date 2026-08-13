@@ -1,0 +1,56 @@
+{
+  "_note": "Identity and page-level metadata. Everything here is rendered into static HTML by build.js — edit this, then run `npm run build`.",
+  "identity": {
+    "name": "Prudhvi Vuppalapati",
+    "role": "Analytics Engineer",
+    "location": "Atlanta, GA",
+    "email": "jaswanthjeswa85@gmail.com",
+    "_email_TODO": "Confirm this is the address to receive recruiter mail on.",
+    "githubUser": "4709625727",
+    "github": "https://github.com/4709625727",
+    "linkedin": "",
+    "_linkedin_TODO": "Add a LinkedIn profile URL here to surface it in the rail and JSON-LD.",
+    "available": "Open to analytics and data engineering roles"
+  },
+  "meta": {
+    "title": "Prudhvi Vuppalapati — Analytics Engineer",
+    "description": "Analytics engineer in Atlanta, GA. I build the warehouse layer other teams query: change-data-capture ingestion, dbt models under test, and marts that never get built on bad data.",
+    "keywords": "analytics engineer, data engineer, dbt, SQL, Airflow, Postgres, ClickHouse, DuckDB, Apache Iceberg, Atlanta",
+    "url": "https://4709625727.github.io/",
+    "_url_TODO": "Point this at a custom domain when one is registered, then update CNAME.",
+    "ogImage": "assets/images/og.jpg",
+    "themeColor": "#EDEFF2",
+    "themeColorDark": "#101319"
+  },
+  "sections": [
+    {
+      "id": "profile",
+      "label": "profile",
+      "type": "identity"
+    },
+    {
+      "id": "pipeline",
+      "label": "pipeline",
+      "type": "project[5]"
+    },
+    {
+      "id": "record",
+      "label": "record",
+      "type": "role[2]"
+    },
+    {
+      "id": "stack",
+      "label": "stack",
+      "type": "text[]"
+    },
+    {
+      "id": "contact",
+      "label": "contact",
+      "type": "email"
+    }
+  ],
+  "footer": {
+    "note": "Static page, self-hosted fonts, no third-party requests, no analytics, no cookies.",
+    "sourceLabel": "Source for this site"
+  }
+}

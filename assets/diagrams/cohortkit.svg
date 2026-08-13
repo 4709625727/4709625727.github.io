@@ -1,0 +1,33 @@
+<svg viewBox="0 0 720 150" xmlns="http://www.w3.org/2000/svg" class="dgm" role="img" aria-labelledby="dgm-ck-t dgm-ck-d">
+  <title id="dgm-ck-t">cohortkit retention outputs</title>
+  <desc id="dgm-ck-d">Any table with customer id, order date and revenue columns is read in-process by DuckDB and returned as three tidy DataFrames: a cohort retention triangle where each acquisition month decays across later months, an RFM segmentation, and revenue by cohort. No warehouse, no network and no configuration are involved.</desc>
+
+  <rect class="d-box" x="10" y="42" width="156" height="58"/>
+  <text class="d-label" x="88" y="66">any table</text>
+  <text class="d-sub"   x="88" y="82">customer · date · revenue</text>
+
+  <path class="d-line" d="M166 71 H182"/><path class="d-head" d="M188 71 l-7 -3.5 v7 z"/>
+
+  <rect class="d-box is-accent" x="188" y="52" width="96" height="38"/>
+  <text class="d-label is-accent-text" x="236" y="76">DuckDB</text>
+  <text class="d-sub" x="236" y="104">in-process</text>
+
+  <path class="d-line" d="M284 71 H304 V24 M304 71 V118 M304 71 H316"/>
+  <path class="d-head" d="M322 24 l-7 -3.5 v7 z"/><path class="d-head" d="M322 71 l-7 -3.5 v7 z"/><path class="d-head" d="M322 118 l-7 -3.5 v7 z"/>
+  <path class="d-line" d="M304 24 H316 M304 118 H316"/>
+
+  <text class="d-sub d-start" x="330" y="28">RFM segments</text>
+  <text class="d-sub d-start" x="330" y="122">revenue by cohort</text>
+  <text class="d-sub d-start" x="330" y="75">retention triangle</text>
+
+  <!-- the triangle itself, drawn as a decaying heat grid -->
+  <g class="d-cells">
+    <rect class="c1" x="452" y="46" width="24" height="14"/><rect class="c2" x="478" y="46" width="24" height="14"/><rect class="c3" x="504" y="46" width="24" height="14"/><rect class="c4" x="530" y="46" width="24" height="14"/><rect class="c5" x="556" y="46" width="24" height="14"/><rect class="c6" x="582" y="46" width="24" height="14"/><rect class="c6" x="608" y="46" width="24" height="14"/>
+    <rect class="c1" x="452" y="62" width="24" height="14"/><rect class="c2" x="478" y="62" width="24" height="14"/><rect class="c3" x="504" y="62" width="24" height="14"/><rect class="c4" x="530" y="62" width="24" height="14"/><rect class="c5" x="556" y="62" width="24" height="14"/><rect class="c6" x="582" y="62" width="24" height="14"/>
+    <rect class="c1" x="452" y="78" width="24" height="14"/><rect class="c2" x="478" y="78" width="24" height="14"/><rect class="c3" x="504" y="78" width="24" height="14"/><rect class="c4" x="530" y="78" width="24" height="14"/><rect class="c5" x="556" y="78" width="24" height="14"/>
+    <rect class="c1" x="452" y="94" width="24" height="14"/><rect class="c2" x="478" y="94" width="24" height="14"/><rect class="c3" x="504" y="94" width="24" height="14"/><rect class="c4" x="530" y="94" width="24" height="14"/>
+    <rect class="c1" x="452" y="110" width="24" height="14"/><rect class="c2" x="478" y="110" width="24" height="14"/><rect class="c3" x="504" y="110" width="24" height="14"/>
+  </g>
+  <text class="d-sub d-start" x="452" y="38">month 0</text>
+  <text class="d-sub d-end"   x="632" y="38">→ month 6</text>
+</svg>

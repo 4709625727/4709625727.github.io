@@ -1,33 +1,30 @@
 {
-  "name": "vibrant-portfolio-template",
-  "version": "1.0.0",
-  "description": "A modern, vibrant portfolio website template with dark theme and dynamic gradients",
-  "main": "index.html",
+  "name": "prudhvi-vuppalapati-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Personal site for Prudhvi Vuppalapati, analytics engineer. Static HTML rendered from data/*.json at build time.",
   "scripts": {
-    "start": "python -m http.server 8000",
-    "dev": "python -m http.server 8000"
+    "build": "node build.js",
+    "check": "node build.js --check",
+    "resume": "bash tools/make-resume.sh",
+    "dev": "npm run build && python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000"
   },
   "keywords": [
     "portfolio",
-    "template",
-    "website",
-    "personal",
-    "developer",
-    "designer",
-    "creative",
-    "dark-theme",
-    "json-driven",
-    "responsive",
-    "vanilla-js"
+    "analytics-engineering",
+    "data-engineering",
+    "dbt",
+    "static-site"
   ],
-  "author": "Your Name",
+  "author": "Prudhvi Vuppalapati",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/vibrant-portfolio-template"
+    "url": "https://github.com/4709625727/4709625727.github.io"
   },
-  "bugs": {
-    "url": "https://github.com/yourusername/vibrant-portfolio-template/issues"
-  },
-  "homepage": "https://yourusername.github.io/vibrant-portfolio-template"
+  "homepage": "https://4709625727.github.io/",
+  "engines": {
+    "node": ">=18"
+  }
 }

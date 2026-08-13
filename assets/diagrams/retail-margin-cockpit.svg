@@ -1,0 +1,35 @@
+<svg viewBox="0 0 720 150" xmlns="http://www.w3.org/2000/svg" class="dgm" role="img" aria-labelledby="dgm-rm-t dgm-rm-d">
+  <title id="dgm-rm-t">Retail margin star schema and row-level security</title>
+  <desc id="dgm-rm-d">POS, Shopify and inventory exports are seeded through dbt into a star schema: a central sales fact table joined to product, channel, date and region dimensions, with not-null, unique, relationships and accepted-values tests on every key column. A DAX measure library and row-level security design then expose it in Power BI so a regional manager sees only their own region.</desc>
+
+  <rect class="d-box" x="10" y="18" width="104" height="24"/><text class="d-sub" x="62" y="34">POS</text>
+  <rect class="d-box" x="10" y="50" width="104" height="24"/><text class="d-sub" x="62" y="66">Shopify</text>
+  <rect class="d-box" x="10" y="82" width="104" height="24"/><text class="d-sub" x="62" y="98">inventory</text>
+
+  <path class="d-line" d="M114 30 H136 V62 M114 62 H136 M114 94 H136 V62"/>
+  <path class="d-line" d="M136 62 H160"/><path class="d-head" d="M166 62 l-7 -3.5 v7 z"/>
+
+  <!-- star schema -->
+  <rect class="d-box" x="222" y="8" width="92" height="24"/><text class="d-sub" x="268" y="24">dim_product</text>
+  <rect class="d-box" x="222" y="92" width="92" height="24"/><text class="d-sub" x="268" y="108">dim_date</text>
+  <rect class="d-box" x="166" y="50" width="46" height="24"/><text class="d-sub" x="189" y="66">chan</text>
+  <rect class="d-box" x="324" y="50" width="52" height="24"/><text class="d-sub" x="350" y="66">region</text>
+
+  <rect class="d-box is-accent" x="222" y="44" width="92" height="36"/>
+  <text class="d-label is-accent-text" x="268" y="66">fact_sales</text>
+
+  <path class="d-line" d="M268 32 V44 M268 80 V92 M212 62 H222 M314 62 H324"/>
+
+  <path class="d-line" d="M376 62 H430"/><path class="d-head" d="M436 62 l-7 -3.5 v7 z"/>
+  <text class="d-sub" x="403" y="52" text-anchor="middle">DAX</text>
+
+  <!-- power bi panel, region scoped -->
+  <rect class="d-box" x="436" y="18" width="274" height="88"/>
+  <rect class="d-box is-accent" x="446" y="28" width="126" height="30"/>
+  <rect class="d-box" x="582" y="28" width="118" height="30"/>
+  <rect class="d-box is-accent" x="446" y="66" width="80" height="30"/>
+  <rect class="d-box" x="536" y="66" width="164" height="30"/>
+  <text class="d-sub is-accent-text" x="573" y="122" text-anchor="middle">row-level security · a manager sees only their region</text>
+
+  <text class="d-sub" x="268" y="136" text-anchor="middle">tests on every key column</text>
+</svg>

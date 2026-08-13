@@ -1,84 +1,92 @@
 {
-  "_instructions": "Organize your skills with vibrant colors.",
-  "sectionTitle": "Skills & Technologies",
-  "categories": [
+  "_note": "Set \"e\": true on any skill that is demonstrably used by one of the repos in data/projects.json. build.js renders those with an evidence marker and will FAIL the build if a skill claims evidence that no featured project's stack supports. Don't set it by hand for something you can't point at.",
+
+  "legend": "Marked skills are used by a repository listed above.",
+
+  "groups": [
     {
-      "category": "Programming Languages",
-      "icon": "fas fa-code",
-      "color": "#FF6B6B",
+      "name": "Pipelines & orchestration",
       "skills": [
-        "Java",
-        "SQL",
-        "JavaScript"
+        { "n": "dbt", "e": true },
+        { "n": "Airflow", "e": true },
+        { "n": "Debezium", "e": true },
+        { "n": "Kafka", "e": true },
+        { "n": "Great Expectations", "e": true },
+        { "n": "Docker", "e": true },
+        { "n": "Prometheus", "e": true },
+        { "n": "Grafana", "e": true },
+        { "n": "GitHub Actions", "e": true },
+        { "n": "Kubernetes" },
+        { "n": "Jenkins" },
+        { "n": "Maven" },
+        { "n": "Gradle" }
       ]
     },
     {
-      "category": "Frameworks & Libraries",
-      "icon": "fas fa-toolbox",
-      "color": "#4ECDC4",
+      "name": "Warehouses & stores",
       "skills": [
-        "Spring Suite",
-        "Hibernate",
-        "Struts",
-        "OAuth 2.0",
-        "Spring Boot",
-        "Spring REST",
-        "Spring Web",
-        "Spring Cloud",
-        "Spring Security",
-        "Spring Data JPA",
-        "React.js",
-        "Angular.js",
-        "Bootstrap",
-        "HTML",
-        "CSS"
+        { "n": "PostgreSQL", "e": true },
+        { "n": "ClickHouse", "e": true },
+        { "n": "DuckDB", "e": true },
+        { "n": "Apache Iceberg", "e": true },
+        { "n": "MySQL" },
+        { "n": "SQL Server" },
+        { "n": "MongoDB" },
+        { "n": "DynamoDB" },
+        { "n": "Amazon RDS" },
+        { "n": "Redis" }
       ]
     },
     {
-      "category": "Tools & Platforms",
-      "icon": "fas fa-wrench",
-      "color": "#FFE66D",
+      "name": "Languages",
       "skills": [
-        "Docker",
-        "Kubernetes",
-        "Jenkins",
-        "Maven",
-        "Gradle",
-        "JIRA",
-        "Postman",
-        "GitHub",
-        "Junit",
-        "Mockito",
-        "Tomcat",
-        "AWS",
-        "R53",
-        "S3",
-        "RDS",
-        "EC2",
-        "Lambda",
-        "Beanstalk",
-        "DynamoDB",
-        "IAM",
-        "MySQL",
-        "PostgreSQL",
-        "Mongo DB"
+        { "n": "SQL", "e": true },
+        { "n": "Python", "e": true },
+        { "n": "Java" },
+        { "n": "JavaScript" }
       ]
     },
     {
-      "category": "Technical Skills",
-      "icon": "fas fa-laptop-code",
-      "color": "#A8DADC",
+      "name": "Modelling & analysis",
       "skills": [
-        "Servlets",
-        "JSP",
-        "JPA",
-        "JSTL",
-        "JDBC",
-        "Microservices",
-        "SDLC",
-        "Agile",
-        "Scrum",
-        "Waterfall"
+        { "n": "Star schema", "e": true },
+        { "n": "pandas", "e": true },
+        { "n": "pytest", "e": true },
+        { "n": "Power BI", "e": true },
+        { "n": "DAX", "e": true }
+      ]
+    },
+    {
+      "name": "AWS",
+      "skills": [
+        { "n": "S3" },
+        { "n": "Lambda" },
+        { "n": "EC2" },
+        { "n": "RDS" },
+        { "n": "DynamoDB" },
+        { "n": "IAM" },
+        { "n": "Elastic Beanstalk" },
+        { "n": "CloudWatch" },
+        { "n": "Route 53" }
+      ]
+    },
+    {
+      "name": "Backend",
+      "note": "From four years of Java service work — the operational systems these pipelines read from.",
+      "skills": [
+        { "n": "Spring Boot" },
+        { "n": "Spring Data JPA" },
+        { "n": "Spring Cloud" },
+        { "n": "Spring Security" },
+        { "n": "REST APIs" },
+        { "n": "Microservices" },
+        { "n": "Hibernate" },
+        { "n": "JUnit" },
+        { "n": "Mockito" },
+        { "n": "Postman" },
+        { "n": "Swagger" },
+        { "n": "React" },
+        { "n": "Angular" }
       ]
     }
   ]

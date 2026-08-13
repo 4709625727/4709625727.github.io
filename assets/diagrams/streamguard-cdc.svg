@@ -1,0 +1,40 @@
+<svg viewBox="0 0 720 150" xmlns="http://www.w3.org/2000/svg" class="dgm" role="img" aria-labelledby="dgm-sg-t dgm-sg-d">
+  <title id="dgm-sg-t">StreamGuard change-data-capture pipeline</title>
+  <desc id="dgm-sg-d">Postgres emits row changes on its write-ahead log. A Debezium connector turns them into events on three Kafka topics. A stream processor deduplicates by log sequence number, reconciles schema changes and computes tumbling windows, then writes to ClickHouse. Parse and sink failures are routed to a dead-letter topic instead of being dropped, and consumer lag and throughput are reported to Grafana.</desc>
+
+  <rect class="d-box is-accent" x="10" y="26" width="116" height="46"/>
+  <text class="d-label" x="68" y="48">Postgres</text>
+  <text class="d-sub"   x="68" y="63">orders, customers</text>
+
+  <path class="d-line" d="M126 49 H150"/><path class="d-head" d="M156 49 l-7 -3.5 v7 z"/>
+
+  <rect class="d-box" x="156" y="26" width="116" height="46"/>
+  <text class="d-label" x="214" y="48">Debezium</text>
+  <text class="d-sub"   x="214" y="63">reads the WAL</text>
+
+  <path class="d-line" d="M272 49 H296"/><path class="d-head" d="M302 49 l-7 -3.5 v7 z"/>
+
+  <rect class="d-box" x="302" y="26" width="116" height="46"/>
+  <text class="d-label" x="360" y="48">Kafka</text>
+  <text class="d-sub"   x="360" y="63">3 topics</text>
+
+  <path class="d-line" d="M418 49 H442"/><path class="d-head" d="M448 49 l-7 -3.5 v7 z"/>
+
+  <rect class="d-box" x="448" y="26" width="116" height="46"/>
+  <text class="d-label" x="506" y="48">processor</text>
+  <text class="d-sub"   x="506" y="63">dedupe · window</text>
+
+  <path class="d-line" d="M564 49 H588"/><path class="d-head" d="M594 49 l-7 -3.5 v7 z"/>
+
+  <rect class="d-box is-accent" x="594" y="26" width="116" height="46"/>
+  <text class="d-label" x="652" y="48">ClickHouse</text>
+  <text class="d-sub"   x="652" y="63">raw + rollups</text>
+
+  <!-- failures are routed, not dropped -->
+  <path class="d-line is-dashed" d="M506 72 V96 H590"/><path class="d-head is-accent-fill" d="M596 96 l-7 -3.5 v7 z"/>
+  <rect class="d-box is-accent" x="596" y="81" width="114" height="30"/>
+  <text class="d-sub is-accent-text" x="653" y="100">dead-letter topic</text>
+
+  <text class="d-sub d-start" x="10" y="100">schema drift reconciled in-flight</text>
+  <text class="d-sub d-start" x="10" y="116">consumer lag + throughput on Grafana</text>
+</svg>

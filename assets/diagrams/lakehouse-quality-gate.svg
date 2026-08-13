@@ -1,0 +1,34 @@
+<svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" class="dgm" role="img" aria-labelledby="dgm-lq-t dgm-lq-d">
+  <title id="dgm-lq-t">Lakehouse quality gate</title>
+  <desc id="dgm-lq-d">Raw data lands in Apache Iceberg tables and is shaped by dbt staging models. A Great Expectations checkpoint sits between staging and the marts: when expectations pass, the marts are built; when they fail, the Airflow DAG halts so no mart is ever built on bad data, and an alert naming the failing expectations and sample row IDs is sent to a webhook.</desc>
+
+  <rect class="d-box" x="10" y="20" width="116" height="46"/>
+  <text class="d-label" x="68" y="42">Iceberg</text>
+  <text class="d-sub"   x="68" y="57">raw tables</text>
+
+  <path class="d-line" d="M126 43 H150"/><path class="d-head" d="M156 43 l-7 -3.5 v7 z"/>
+
+  <rect class="d-box" x="156" y="20" width="116" height="46"/>
+  <text class="d-label" x="214" y="42">dbt staging</text>
+  <text class="d-sub"   x="214" y="57">cleaned, joined</text>
+
+  <path class="d-line" d="M272 43 H296"/><path class="d-head" d="M302 43 l-7 -3.5 v7 z"/>
+
+  <!-- the gate: everything must pass through it -->
+  <rect class="d-box is-accent is-heavy" x="302" y="8" width="116" height="76"/>
+  <path class="d-line is-accent" d="M320 14 V78 M338 14 V78 M356 14 V78 M374 14 V78 M392 14 V78 M410 14 V78"/>
+  <text class="d-label is-accent-text" x="360" y="102">checkpoint</text>
+  <text class="d-sub" x="360" y="116">Great Expectations</text>
+
+  <!-- pass -->
+  <path class="d-line" d="M418 26 H442"/><path class="d-head" d="M448 26 l-7 -3.5 v7 z"/>
+  <rect class="d-box is-accent" x="448" y="8" width="128" height="36"/>
+  <text class="d-sub is-accent-text" x="512" y="30">marts built</text>
+
+  <!-- fail -->
+  <path class="d-line is-dashed" d="M418 66 H442"/><path class="d-head" d="M448 66 l-7 -3.5 v7 z"/>
+  <rect class="d-box is-dashed-box" x="448" y="48" width="188" height="36"/>
+  <text class="d-sub" x="542" y="70">DAG halts · webhook alert</text>
+
+  <text class="d-sub" x="542" y="104">no mart is ever built on bad data</text>
+</svg>
